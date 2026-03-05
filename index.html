@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AI Tools Finder</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+body{
+font-family:'Plus Jakarta Sans',sans-serif;
+background:#020617;
+color:white;
+margin:0;
+}
+
+header{
+text-align:center;
+padding:30px;
+font-size:28px;
+font-weight:700;
+border-bottom:1px solid #1e293b;
+}
+
+.hero{
+text-align:center;
+padding:60px 20px;
+}
+
+.hero h1{
+font-size:46px;
+margin-bottom:10px;
+}
+
+.hero p{
+color:#94a3b8;
+}
+
+.section-title{
+font-size:26px;
+padding:20px 40px;
+margin-top:30px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fill,minmax(250px,1fr));
+gap:25px;
+padding:0 40px 60px;
+}
+
+.card{
+
+background:#0f172a;
+padding:25px;
+border-radius:16px;
+transition:0.3s;
+border:1px solid #1e293b;
+
+}
+
+.card:hover{
+
+transform:translateY(-8px);
+border-color:#0ea5e9;
+box-shadow:0 10px 30px rgba(14,165,233,0.2)
+
+}
+
+.card img{
+
+width:50px;
+height:50px;
+object-fit:contain;
+margin-bottom:10px;
+
+}
+
+.card h3{
+margin:6px 0;
+}
+
+.card p{
+
+font-size:14px;
+color:#94a3b8;
+
+}
+
+.btn{
+
+display:block;
+margin-top:15px;
+text-align:center;
+padding:10px;
+border-radius:10px;
+background:#0ea5e9;
+text-decoration:none;
+color:white;
+font-size:14px;
+
+}
+
+footer{
+
+text-align:center;
+padding:40px;
+color:#64748b;
+border-top:1px solid #1e293b;
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+AI Tools Finder
+</header>
+
+<section class="hero">
+
+<h1>Discover the Best AI Tools</h1>
+
+<p>Explore powerful AI tools for coding, images, video, music and more.</p>
+
+</section>
+
+<h2 class="section-title">🔥 Trending AI Tools</h2>
+
+<section class="grid" id="trending"></section>
+
+<h2 class="section-title">💬 Chat AI</h2>
+
+<section class="grid" id="chat"></section>
+
+<h2 class="section-title">🎨 Image AI</h2>
+
+<section class="grid" id="image"></section>
+
+<h2 class="section-title">🎬 Video AI</h2>
+
+<section class="grid" id="video"></section>
+
+<h2 class="section-title">💻 Coding AI</h2>
+
+<section class="grid" id="coding"></section>
+
+<h2 class="section-title">🎵 Audio / Music AI</h2>
+
+<section class="grid" id="audio"></section>
+
+<h2 class="section-title">✍️ Writing AI</h2>
+
+<section class="grid" id="writing"></section>
+
+<footer>
+
+AI Tools Finder © 2026
+
+</footer>
+
+<script>
+
+function createCard(tool){
+
+return `
+
+<div class="card">
+
+<img src="${tool.logo}" onerror="this.src='https://cdn-icons-png.flaticon.com/512/4712/4712100.png'">
+
+<h3>${tool.name}</h3>
+
+<p>${tool.desc}</p>
+
+<a class="btn" href="${tool.link}" target="_blank">Open Tool</a>
+
+</div>
+
+`
+
+}
+
+const tools={
+
+trending:[
+{name:"ChatGPT",desc:"Advanced AI assistant.",link:"https://chat.openai.com",logo:"https://logo.clearbit.com/openai.com"},
+{name:"Claude",desc:"Anthropic AI chatbot.",link:"https://claude.ai",logo:"https://logo.clearbit.com/anthropic.com"},
+{name:"Midjourney",desc:"AI image generator.",link:"https://midjourney.com",logo:"https://logo.clearbit.com/midjourney.com"},
+{name:"Runway",desc:"AI video creation.",link:"https://runwayml.com",logo:"https://logo.clearbit.com/runwayml.com"}
+],
+
+chat:[
+{name:"Perplexity",desc:"AI search engine.",link:"https://perplexity.ai",logo:"https://logo.clearbit.com/perplexity.ai"},
+{name:"Gemini",desc:"Google AI assistant.",link:"https://gemini.google.com",logo:"https://logo.clearbit.com/google.com"},
+{name:"Poe",desc:"Multiple AI models platform.",link:"https://poe.com",logo:"https://logo.clearbit.com/poe.com"}
+],
+
+image:[
+{name:"Leonardo AI",desc:"AI artwork generator.",link:"https://leonardo.ai",logo:"https://logo.clearbit.com/leonardo.ai"},
+{name:"Ideogram",desc:"Generate images with text.",link:"https://ideogram.ai",logo:"https://logo.clearbit.com/ideogram.ai"},
+{name:"Adobe Firefly",desc:"AI design tool.",link:"https://firefly.adobe.com",logo:"https://logo.clearbit.com/adobe.com"},
+{name:"Remove.bg",desc:"Remove backgrounds instantly.",link:"https://remove.bg",logo:"https://logo.clearbit.com/remove.bg"}
+],
+
+video:[
+{name:"Pika",desc:"Text to video AI.",link:"https://pika.art",logo:"https://logo.clearbit.com/pika.art"},
+{name:"HeyGen",desc:"AI avatar videos.",link:"https://heygen.com",logo:"https://logo.clearbit.com/heygen.com"},
+{name:"Synthesia",desc:"AI presenter videos.",link:"https://synthesia.io",logo:"https://logo.clearbit.com/synthesia.io"}
+],
+
+coding:[
+{name:"GitHub Copilot",desc:"AI coding assistant.",link:"https://github.com/features/copilot",logo:"https://logo.clearbit.com/github.com"},
+{name:"Cursor",desc:"AI code editor.",link:"https://cursor.com",logo:"https://logo.clearbit.com/cursor.com"},
+{name:"Codeium",desc:"Free coding AI.",link:"https://codeium.com",logo:"https://logo.clearbit.com/codeium.com"},
+{name:"Replit Ghostwriter",desc:"AI coding inside Replit.",link:"https://replit.com",logo:"https://logo.clearbit.com/replit.com"}
+],
+
+audio:[
+{name:"ElevenLabs",desc:"AI voice generator.",link:"https://elevenlabs.io",logo:"https://logo.clearbit.com/elevenlabs.io"},
+{name:"Suno",desc:"AI music generator.",link:"https://suno.com",logo:"https://logo.clearbit.com/suno.com"},
+{name:"AIVA",desc:"AI music composer.",link:"https://aiva.ai",logo:"https://logo.clearbit.com/aiva.ai"}
+],
+
+writing:[
+{name:"Jasper",desc:"AI marketing writer.",link:"https://jasper.ai",logo:"https://logo.clearbit.com/jasper.ai"},
+{name:"Copy AI",desc:"AI copywriting.",link:"https://copy.ai",logo:"https://logo.clearbit.com/copy.ai"},
+{name:"Writesonic",desc:"SEO AI writer.",link:"https://writesonic.com",logo:"https://logo.clearbit.com/writesonic.com"},
+{name:"Grammarly AI",desc:"AI writing helper.",link:"https://grammarly.com",logo:"https://logo.clearbit.com/grammarly.com"}
+]
+
+}
+
+for(let category in tools){
+
+const section=document.getElementById(category)
+
+tools[category].forEach(tool=>{
+
+section.innerHTML+=createCard(tool)
+
+})
+
+}
+
+</script>
+
+</body>
+</html>
