@@ -4,256 +4,472 @@
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="google-site-verification" content="y8VydN9PuFTJqdkM4cr3-jYoah83Wi-88xOw08mtRAY" />
 
-<title>AI Tools Finder</title>
+<title>AI WORLD | Best AI Tools</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
 
 <style>
 
 body{
-font-family:'Plus Jakarta Sans',sans-serif;
+font-family:Poppins;
 background:#020617;
 color:white;
 margin:0;
 }
 
 header{
-text-align:center;
-padding:30px;
-font-size:28px;
-font-weight:700;
-border-bottom:1px solid #1e293b;
+display:flex;
+justify-content:space-between;
+padding:20px 8%;
+border-bottom:1px solid #111;
+}
+
+.logo{
+font-weight:800;
+font-size:22px;
+color:#6366f1;
+}
+
+nav a{
+margin-left:20px;
+color:#aaa;
+text-decoration:none;
 }
 
 .hero{
 text-align:center;
-padding:60px 20px;
+padding:80px 20px;
 }
 
 .hero h1{
-font-size:46px;
+font-size:50px;
 margin-bottom:10px;
 }
 
-.hero p{
-color:#94a3b8;
+.search-box{
+width:90%;
+max-width:500px;
+padding:14px;
+border-radius:30px;
+border:none;
+background:#111827;
+color:white;
 }
 
-.section-title{
-font-size:26px;
-padding:20px 40px;
-margin-top:30px;
+.categories{
+margin-top:20px;
+}
+
+.cat-btn{
+padding:8px 16px;
+margin:5px;
+border-radius:20px;
+border:1px solid #333;
+background:none;
+color:#ccc;
+cursor:pointer;
+}
+
+.cat-btn.active{
+background:#6366f1;
+color:white;
 }
 
 .grid{
 display:grid;
-grid-template-columns:repeat(auto-fill,minmax(250px,1fr));
+grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
 gap:25px;
-padding:0 40px 60px;
+padding:40px 8%;
 }
 
 .card{
-
 background:#0f172a;
-padding:25px;
 border-radius:16px;
-transition:0.3s;
-border:1px solid #1e293b;
-
+padding:20px;
+transition:.3s;
+border:1px solid #1f2937;
 }
 
 .card:hover{
-
-transform:translateY(-8px);
-border-color:#0ea5e9;
-box-shadow:0 10px 30px rgba(14,165,233,0.2)
-
+transform:translateY(-6px);
+border-color:#6366f1;
 }
 
-.card img{
-
-width:50px;
-height:50px;
-object-fit:contain;
-margin-bottom:10px;
-
+.card-top{
+display:flex;
+align-items:center;
+gap:12px;
 }
 
-.card h3{
-margin:6px 0;
+.card-img{
+width:40px;
+height:40px;
+border-radius:8px;
+background:white;
+padding:4px;
 }
+
+.tag{
+font-size:11px;
+color:#22d3ee;
+font-weight:700;
+}
+
+.price{
+font-size:10px;
+padding:3px 8px;
+border-radius:6px;
+margin-left:6px;
+font-weight:600;
+}
+
+.free{background:#16a34a;}
+.paid{background:#dc2626;}
 
 .card p{
-
-font-size:14px;
 color:#94a3b8;
-
-}
-
-.btn{
-
-display:block;
-margin-top:15px;
-text-align:center;
-padding:10px;
-border-radius:10px;
-background:#0ea5e9;
-text-decoration:none;
-color:white;
 font-size:14px;
-
+margin:12px 0;
 }
 
-footer{
+.card-footer{
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
 
-text-align:center;
-padding:40px;
-color:#64748b;
-border-top:1px solid #1e293b;
-
+.visit-btn{
+padding:6px 14px;
+border-radius:8px;
+background:white;
+color:black;
+text-decoration:none;
+font-size:12px;
 }
 
 </style>
+
 </head>
 
 <body>
 
 <header>
-AI Tools Finder
+
+<div class="logo">AI NEXUS
+</div>
+
+
+<nav>
+<a href="#">Explore</a>
+<a href="#">Trending</a>
+</nav>
+
 </header>
 
 <section class="hero">
 
-<h1>Discover the Best AI Tools</h1>
+    <div>
+<h1>Discover AI Tools</h1>
+<p>Trusted By 10,000+ Users</p>
+</div>
 
-<p>Explore powerful AI tools for coding, images, video, music and more.</p>
+<input id="search" class="search-box" placeholder="Search AI tools">
+
+<div class="categories">
+
+<button class="cat-btn active" data-filter="all">All</button>
+<button class="cat-btn" data-filter="Chat">Chat</button>
+<button class="cat-btn" data-filter="Image">Image</button>
+<button class="cat-btn" data-filter="Video">Video</button>
+<button class="cat-btn" data-filter="Code">Code</button>
+<button class="cat-btn" data-filter="Writing">Writing</button>
+<button class="cat-btn" data-filter="Audio">Audio</button>
+<button class="cat-btn" data-filter="Productivity">Productivity</button>
+<button class="cat-btn" data-filter="Design">Design</button>
+
+</div>
 
 </section>
 
-<h2 class="section-title">🔥 Trending AI Tools</h2>
-
-<section class="grid" id="trending"></section>
-
-<h2 class="section-title">💬 Chat AI</h2>
-
-<section class="grid" id="chat"></section>
-
-<h2 class="section-title">🎨 Image AI</h2>
-
-<section class="grid" id="image"></section>
-
-<h2 class="section-title">🎬 Video AI</h2>
-
-<section class="grid" id="video"></section>
-
-<h2 class="section-title">💻 Coding AI</h2>
-
-<section class="grid" id="coding"></section>
-
-<h2 class="section-title">🎵 Audio / Music AI</h2>
-
-<section class="grid" id="audio"></section>
-
-<h2 class="section-title">✍️ Writing AI</h2>
-
-<section class="grid" id="writing"></section>
-
-<footer>
-
-AI Tools Finder © 2026
-
-</footer>
+<section class="grid" id="tools"></section>
 
 <script>
 
-function createCard(tool){
+const tools=[
 
-return `
+{name:"ChatGPT",cat:"Chat",price:"free",desc:"Advanced AI assistant",link:"https://chat.openai.com",logo:"https://logo.clearbit.com/openai.com"},
+{name:"Claude",cat:"Chat",price:"free",desc:"AI reasoning assistant",link:"https://claude.ai",logo:"https://logo.clearbit.com/anthropic.com"},
+{name:"Gemini",cat:"Chat",price:"free",desc:"Google AI chatbot assistant",link:"https://gemini.google.com",logo:"https://logo.clearbit.com/google.com"},
+{name:"Poe",cat:"Chat",price:"free",desc:"Multi AI chatbot platform",link:"https://poe.com",logo:"https://logo.clearbit.com/poe.com"},
+{name:"HuggingChat",cat:"Chat",price:"free",desc:"Open source AI chatbot",link:"https://huggingface.co/chat",logo:"https://logo.clearbit.com/huggingface.co"},
+
+{name:"Midjourney",cat:"Image",price:"paid",desc:"AI art generator",link:"https://midjourney.com",logo:"https://logo.clearbit.com/midjourney.com"},
+{name:"Leonardo AI",cat:"Image",price:"free",desc:"AI image creation",link:"https://leonardo.ai",logo:"https://logo.clearbit.com/leonardo.ai"},
+{name:"Ideogram",cat:"Image",price:"free",desc:"AI image generator with text",link:"https://ideogram.ai",logo:"https://logo.clearbit.com/ideogram.ai"},
+{name:"Playground AI",cat:"Image",price:"free",desc:"Generate creative AI images",link:"https://playgroundai.com",logo:"https://logo.clearbit.com/playgroundai.com"},
+{name:"NightCafe",cat:"Image",price:"free",desc:"AI art generation platform",link:"https://nightcafe.studio",logo:"https://logo.clearbit.com/nightcafe.studio"},
+
+{name:"Runway",cat:"Video",price:"paid",desc:"AI video generation",link:"https://runwayml.com",logo:"https://logo.clearbit.com/runwayml.com"},
+{name:"Pika",cat:"Video",price:"free",desc:"AI animation videos",link:"https://pika.art",logo:"https://logo.clearbit.com/pika.art"},
+{name:"HeyGen",cat:"Video",price:"paid",desc:"AI avatar videos",link:"https://heygen.com",logo:"https://logo.clearbit.com/heygen.com"},
+{name:"Synthesia",cat:"Video",price:"paid",desc:"AI avatar video generator",link:"https://synthesia.io",logo:"https://logo.clearbit.com/synthesia.io"},
+{name:"InVideo AI",cat:"Video",price:"free",desc:"Text to AI video generator",link:"https://invideo.io",logo:"https://logo.clearbit.com/invideo.io"},
+
+{name:"GitHub Copilot",cat:"Code",price:"paid",desc:"AI coding assistant",link:"https://github.com/features/copilot",logo:"https://logo.clearbit.com/github.com"},
+{name:"Cursor",cat:"Code",price:"free",desc:"AI coding IDE",link:"https://cursor.com",logo:"https://logo.clearbit.com/cursor.com"},
+{name:"Codeium",cat:"Code",price:"free",desc:"Free AI coding assistant",link:"https://codeium.com",logo:"https://logo.clearbit.com/codeium.com"},
+{name:"Tabnine",cat:"Code",price:"free",desc:"AI coding assistant",link:"https://tabnine.com",logo:"https://logo.clearbit.com/tabnine.com"},
+{name:"Amazon CodeWhisperer",cat:"Code",price:"free",desc:"AI coding suggestions",link:"https://aws.amazon.com/codewhisperer",logo:"https://logo.clearbit.com/amazon.com"},
+
+{name:"Jasper",cat:"Writing",price:"paid",desc:"AI marketing writer",link:"https://jasper.ai",logo:"https://logo.clearbit.com/jasper.ai"},
+{name:"Writesonic",cat:"Writing",price:"paid",desc:"AI content generator",link:"https://writesonic.com",logo:"https://logo.clearbit.com/writesonic.com"},
+{name:"Copy AI",cat:"Writing",price:"free",desc:"AI marketing copy generator",link:"https://copy.ai",logo:"https://logo.clearbit.com/copy.ai"},
+{name:"Rytr",cat:"Writing",price:"free",desc:"AI writing assistant",link:"https://rytr.me",logo:"https://logo.clearbit.com/rytr.me"},
+{name:"Wordtune",cat:"Writing",price:"free",desc:"AI rewriting assistant",link:"https://wordtune.com",logo:"https://logo.clearbit.com/wordtune.com"},
+
+{name:"ElevenLabs",cat:"Audio",price:"paid",desc:"AI voice generation",link:"https://elevenlabs.io",logo:"https://logo.clearbit.com/elevenlabs.io"},
+{name:"Suno",cat:"Audio",price:"free",desc:"AI music generator",link:"https://suno.com",logo:"https://logo.clearbit.com/suno.com"},
+{name:"Udio",cat:"Audio",price:"free",desc:"AI music creation",link:"https://udio.com",logo:"https://logo.clearbit.com/udio.com"},
+{name:"Voicemod AI",cat:"Audio",price:"free",desc:"AI voice changer",link:"https://voicemod.net",logo:"https://logo.clearbit.com/voicemod.net"},
+{name:"Speechify",cat:"Audio",price:"paid",desc:"AI text to speech reader",link:"https://speechify.com",logo:"https://logo.clearbit.com/speechify.com"},
+
+{name:"Mem AI",cat:"Productivity",price:"free",desc:"AI note taking app",link:"https://mem.ai",logo:"https://logo.clearbit.com/mem.ai"},
+{name:"Taskade",cat:"Productivity",price:"free",desc:"AI productivity workspace",link:"https://taskade.com",logo:"https://logo.clearbit.com/taskade.com"},
+{name:"Motion AI",cat:"Productivity",price:"paid",desc:"AI task planning tool",link:"https://usemotion.com",logo:"https://logo.clearbit.com/usemotion.com"},
+{name:"Rewind AI",cat:"Productivity",price:"paid",desc:"AI memory assistant",link:"https://rewind.ai",logo:"https://logo.clearbit.com/rewind.ai"},
+{name:"Magical AI",cat:"Productivity",price:"free",desc:"AI automation tool",link:"https://magical.so",logo:"https://logo.clearbit.com/magical.so"},
+
+{name:"Looka",cat:"Design",price:"paid",desc:"AI logo maker",link:"https://looka.com",logo:"https://logo.clearbit.com/looka.com"},
+{name:"Brandmark",cat:"Design",price:"paid",desc:"AI brand logo generator",link:"https://brandmark.io",logo:"https://logo.clearbit.com/brandmark.io"},
+{name:"Uizard",cat:"Design",price:"free",desc:"AI UI design tool",link:"https://uizard.io",logo:"https://logo.clearbit.com/uizard.io"},
+{name:"Khroma",cat:"Design",price:"free",desc:"AI color generator",link:"https://khroma.co",logo:"https://logo.clearbit.com/khroma.co"},
+{name:"Designs AI",cat:"Design",price:"paid",desc:"AI design generator",link:"https://designs.ai",logo:"https://logo.clearbit.com/designs.ai"},
+// ===== NEW AI TOOLS (NO DUPLICATE) =====
+
+{name:"Krea AI",cat:"Image",price:"free",trending:true,desc:"Realtime AI image generation",link:"https://krea.ai",logo:"https://logo.clearbit.com/krea.ai"},
+
+{name:"Clipdrop",cat:"Image",price:"free",desc:"AI image editing and background removal",link:"https://clipdrop.co",logo:"https://logo.clearbit.com/clipdrop.co"},
+
+{name:"Hotpot AI",cat:"Image",price:"free",desc:"AI graphics and photo generator",link:"https://hotpot.ai",logo:"https://logo.clearbit.com/hotpot.ai"},
+
+{name:"Artbreeder",cat:"Image",price:"free",desc:"Create AI generated portraits",link:"https://artbreeder.com",logo:"https://logo.clearbit.com/artbreeder.com"},
+
+{name:"DeepAI",cat:"Image",price:"free",desc:"AI image and text generator",link:"https://deepai.org",logo:"https://logo.clearbit.com/deepai.org"},
+
+{name:"Stockimg AI",cat:"Image",price:"paid",desc:"Generate logos and images",link:"https://stockimg.ai",logo:"https://logo.clearbit.com/stockimg.ai"},
+
+{name:"Pixelcut",cat:"Image",price:"free",desc:"AI background remover and editor",link:"https://pixelcut.ai",logo:"https://logo.clearbit.com/pixelcut.ai"},
+
+{name:"Cleanup Pictures",cat:"Image",price:"free",desc:"Remove objects from images",link:"https://cleanup.pictures",logo:"https://logo.clearbit.com/cleanup.pictures"},
+
+{name:"Fotor AI",cat:"Image",price:"free",desc:"AI photo editing platform",link:"https://fotor.com",logo:"https://logo.clearbit.com/fotor.com"},
+
+{name:"Photosonic",cat:"Image",price:"paid",desc:"AI image creator by Writesonic",link:"https://photosonic.ai",logo:"https://logo.clearbit.com/photosonic.ai"},
+
+
+// VIDEO AI
+
+{name:"VEED AI",cat:"Video",price:"free",trending:true,desc:"AI video editing platform",link:"https://veed.io",logo:"https://logo.clearbit.com/veed.io"},
+
+{name:"Descript",cat:"Video",price:"free",desc:"AI video and podcast editor",link:"https://descript.com",logo:"https://logo.clearbit.com/descript.com"},
+
+{name:"Fliki",cat:"Video",price:"free",desc:"Text to video generator",link:"https://fliki.ai",logo:"https://logo.clearbit.com/fliki.ai"},
+
+{name:"Pictory",cat:"Video",price:"paid",desc:"Convert text into video",link:"https://pictory.ai",logo:"https://logo.clearbit.com/pictory.ai"},
+
+{name:"Colossyan",cat:"Video",price:"paid",desc:"AI training videos generator",link:"https://colossyan.com",logo:"https://logo.clearbit.com/colossyan.com"},
+
+{name:"DeepBrain AI",cat:"Video",price:"paid",desc:"AI avatar video platform",link:"https://deepbrain.io",logo:"https://logo.clearbit.com/deepbrain.io"},
+
+{name:"Hour One",cat:"Video",price:"paid",desc:"AI presenter videos",link:"https://hourone.ai",logo:"https://logo.clearbit.com/hourone.ai"},
+
+{name:"D-ID",cat:"Video",price:"paid",desc:"Talking avatar videos",link:"https://d-id.com",logo:"https://logo.clearbit.com/d-id.com"},
+
+{name:"Animoto AI",cat:"Video",price:"free",desc:"AI marketing videos creator",link:"https://animoto.com",logo:"https://logo.clearbit.com/animoto.com"},
+
+{name:"Kapwing AI",cat:"Video",price:"free",desc:"AI video editing suite",link:"https://kapwing.com",logo:"https://logo.clearbit.com/kapwing.com"},
+
+
+// AUDIO AI
+
+{name:"Resemble AI",cat:"Audio",price:"paid",desc:"AI voice cloning",link:"https://resemble.ai",logo:"https://logo.clearbit.com/resemble.ai"},
+
+{name:"WellSaid Labs",cat:"Audio",price:"paid",desc:"AI voice generator",link:"https://wellsaidlabs.com",logo:"https://logo.clearbit.com/wellsaidlabs.com"},
+
+{name:"Altered AI",cat:"Audio",price:"paid",desc:"AI voice changer",link:"https://altered.ai",logo:"https://logo.clearbit.com/altered.ai"},
+
+{name:"LOVO AI",cat:"Audio",price:"paid",desc:"AI voiceover platform",link:"https://lovo.ai",logo:"https://logo.clearbit.com/lovo.ai"},
+
+{name:"Krisp AI",cat:"Audio",price:"free",desc:"AI noise cancellation",link:"https://krisp.ai",logo:"https://logo.clearbit.com/krisp.ai"},
+
+{name:"Cleanvoice",cat:"Audio",price:"paid",desc:"Remove filler words from audio",link:"https://cleanvoice.ai",logo:"https://logo.clearbit.com/cleanvoice.ai"},
+
+
+// WRITING AI
+
+{name:"QuillBot",cat:"Writing",price:"free",trending:true,desc:"AI paraphrasing tool",link:"https://quillbot.com",logo:"https://logo.clearbit.com/quillbot.com"},
+
+{name:"HyperWrite",cat:"Writing",price:"free",desc:"AI writing assistant",link:"https://hyperwrite.ai",logo:"https://logo.clearbit.com/hyperwrite.ai"},
+
+{name:"Peppertype",cat:"Writing",price:"paid",desc:"AI content generator",link:"https://peppertype.ai",logo:"https://logo.clearbit.com/peppertype.ai"},
+
+{name:"LongShot AI",cat:"Writing",price:"paid",desc:"AI long form content tool",link:"https://longshot.ai",logo:"https://logo.clearbit.com/longshot.ai"},
+
+{name:"Simplified AI",cat:"Writing",price:"free",desc:"AI marketing content",link:"https://simplified.com",logo:"https://logo.clearbit.com/simplified.com"},
+
+{name:"INK AI",cat:"Writing",price:"paid",desc:"AI SEO content writing tool",link:"https://inkforall.com",logo:"https://logo.clearbit.com/inkforall.com"},
+
+
+// CODING AI
+
+{name:"Mutable AI",cat:"Code",price:"free",desc:"AI code refactoring assistant",link:"https://mutable.ai",logo:"https://logo.clearbit.com/mutable.ai"},
+
+{name:"Continue Dev",cat:"Code",price:"free",desc:"AI coding assistant extension",link:"https://continue.dev",logo:"https://logo.clearbit.com/continue.dev"},
+
+{name:"Blackbox AI",cat:"Code",price:"free",desc:"AI coding search engine",link:"https://blackbox.ai",logo:"https://logo.clearbit.com/blackbox.ai"},
+
+{name:"CodeGeeX",cat:"Code",price:"free",desc:"AI coding assistant",link:"https://codegeex.cn",logo:"https://logo.clearbit.com/codegeex.cn"},
+
+{name:"Codiga",cat:"Code",price:"free",desc:"AI code review assistant",link:"https://codiga.io",logo:"https://logo.clearbit.com/codiga.io"},
+
+{name:"CodeT5",cat:"Code",price:"free",desc:"AI code generation model",link:"https://salesforce.com",logo:"https://logo.clearbit.com/salesforce.com"},
+
+
+// PRODUCTIVITY AI
+
+{name:"Superhuman AI",cat:"Productivity",price:"paid",desc:"AI email productivity tool",link:"https://superhuman.com",logo:"https://logo.clearbit.com/superhuman.com"},
+
+{name:"Otter AI",cat:"Productivity",price:"free",desc:"AI meeting transcription",link:"https://otter.ai",logo:"https://logo.clearbit.com/otter.ai"},
+
+{name:"Fireflies AI",cat:"Productivity",price:"free",desc:"AI meeting assistant",link:"https://fireflies.ai",logo:"https://logo.clearbit.com/fireflies.ai"},
+
+{name:"Tome AI",cat:"Productivity",price:"free",desc:"AI presentation creator",link:"https://tome.app",logo:"https://logo.clearbit.com/tome.app"},
+
+{name:"Beautiful AI",cat:"Productivity",price:"paid",desc:"AI presentation builder",link:"https://beautiful.ai",logo:"https://logo.clearbit.com/beautiful.ai"},
+
+// ===== NEW TRENDING VIBE CODING AI TOOLS =====
+{name:"Devin AI",cat:"Code",price:"paid",desc:"Autonomous AI software engineer for vibe coding by Cognition Labs",link:"https://cognition.ai",logo:"https://logo.clearbit.com/cognition.ai"},
+
+{name:"v0",cat:"Code",price:"free",desc:"AI UI generator for vibe coding by Vercel",link:"https://v0.dev",logo:"https://logo.clearbit.com/vercel.com"},
+
+{name:"Bolt.new",cat:"Code",price:"free",desc:"AI full stack app builder for vibe coding by StackBlitz",link:"https://bolt.new",logo:"https://logo.clearbit.com/stackblitz.com"},
+
+{name:"Windsurf",cat:"Code",price:"free",desc:"AI coding IDE focused on vibe coding by Codeium",link:"https://windsurf.ai",logo:"https://logo.clearbit.com/codeium.com"},
+
+{name:"Lovable",cat:"Code",price:"free",desc:"Prompt based full app builder for vibe coding",link:"https://lovable.dev",logo:"https://logo.clearbit.com/lovable.dev"},
+
+{name:"Replit AI",cat:"Code",price:"free",desc:"AI coding assistant for building apps by Replit",link:"https://replit.com",logo:"https://logo.clearbit.com/replit.com"},
+
+{name:"Claude Code",cat:"Code",price:"free",desc:"AI coding assistant for vibe coding by Anthropic",link:"https://anthropic.com",logo:"https://logo.clearbit.com/anthropic.com"},
+
+{name:"Gemini Code Assist",cat:"Code",price:"free",desc:"AI coding assistant for developers by Google",link:"https://cloud.google.com",logo:"https://logo.clearbit.com/google.com"},
+
+{name:"OpenAI Codex",cat:"Code",price:"paid",desc:"AI code generation system for vibe coding by OpenAI",link:"https://openai.com",logo:"https://logo.clearbit.com/openai.com"},
+
+{name:"Sourcegraph Cody",cat:"Code",price:"free",desc:"AI coding assistant for large codebases by Sourcegraph",link:"https://sourcegraph.com",logo:"https://logo.clearbit.com/sourcegraph.com"},
+
+
+// ===== MORE TRENDING CODING AI =====
+
+{name:"AskCodi",cat:"Code",price:"paid",desc:"AI coding assistant for developers",link:"https://askcodi.com",logo:"https://logo.clearbit.com/askcodi.com"},
+
+{name:"Refact AI",cat:"Code",price:"free",desc:"Open source AI coding assistant",link:"https://refact.ai",logo:"https://logo.clearbit.com/refact.ai"},
+
+{name:"Aider",cat:"Code",price:"free",desc:"AI pair programming tool for developers",link:"https://aider.chat",logo:"https://logo.clearbit.com/aider.chat"},
+
+{name:"Sweep AI",cat:"Code",price:"free",desc:"AI tool that writes GitHub pull requests automatically",link:"https://sweep.dev",logo:"https://logo.clearbit.com/sweep.dev"},
+
+{name:"Smol Developer",cat:"Code",price:"free",desc:"AI agent that builds entire apps from prompts",link:"https://github.com/smol-ai/developer",logo:"https://logo.clearbit.com/github.com"},
+
+{name:"Vertex AI",cat:"Code",price:"paid",desc:"AI development platform for building and deploying models by Google",link:"https://cloud.google.com/vertex-ai",logo:"https://logo.clearbit.com/google.com"},
+
+{name:"OpenAI Playground",cat:"Code",price:"free",desc:"Experiment and build with AI models interactively by OpenAI",link:"https://platform.openai.com/playground",logo:"https://logo.clearbit.com/openai.com"},
+
+
+// ===== NEW TRENDING AI TOOLS (OTHER CATEGORIES) =====
+
+{name:"Gamma AI",cat:"Productivity",price:"free",desc:"AI presentation generator",link:"https://gamma.app",logo:"https://logo.clearbit.com/gamma.app"},
+
+{name:"Arc AI",cat:"Productivity",price:"free",desc:"AI powered browser assistant by The Browser Company",link:"https://arc.net",logo:"https://logo.clearbit.com/arc.net"},
+
+{name:"Tldraw AI",cat:"Design",price:"free",desc:"AI whiteboard drawing assistant",link:"https://tldraw.dev",logo:"https://logo.clearbit.com/tldraw.dev"},
+
+{name:"Vectorizer AI",cat:"Image",price:"free",desc:"Convert images into vector graphics using AI",link:"https://vectorizer.ai",logo:"https://logo.clearbit.com/vectorizer.ai"},
+
+{name:"Magnific AI",cat:"Image",price:"paid",desc:"AI image upscaling and enhancement",link:"https://magnific.ai",logo:"https://logo.clearbit.com/magnific.ai"}
+
+]
+
+
+
+function render(filter="all",search=""){
+
+const container=document.getElementById("tools")
+container.innerHTML=""
+
+tools.filter(t=>{
+const f=filter==="all"||t.cat===filter
+const s=t.name.toLowerCase().includes(search)||t.desc.toLowerCase().includes(search)
+return f && s
+}).forEach(tool=>{
+
+container.innerHTML+=`
 
 <div class="card">
 
-<img src="${tool.logo}" onerror="this.src='https://cdn-icons-png.flaticon.com/512/4712/4712100.png'">
+<div class="card-top">
 
-<h3>${tool.name}</h3>
+<img src="${tool.logo}" class="card-img"
+onerror="this.src='https://ui-avatars.com/api/?name=${tool.name}&background=6366f1&color=fff'">
+
+<div>
+
+<div class="tag">${tool.cat}</div>
+
+<h3>${tool.name}
+<span class="price ${tool.price}">
+${tool.price.toUpperCase()}
+</span>
+</h3>
+
+</div>
+
+</div>
 
 <p>${tool.desc}</p>
 
-<a class="btn" href="${tool.link}" target="_blank">Open Tool</a>
+<div class="card-footer">
+<a class="visit-btn" href="${tool.link}" target="_blank">Visit</a>
+</div>
 
 </div>
 
 `
 
-}
-
-const tools={
-
-trending:[
-{name:"ChatGPT",desc:"Advanced AI assistant.",link:"https://chat.openai.com",logo:"https://logo.clearbit.com/openai.com"},
-{name:"Claude",desc:"Anthropic AI chatbot.",link:"https://claude.ai",logo:"https://logo.clearbit.com/anthropic.com"},
-{name:"Midjourney",desc:"AI image generator.",link:"https://midjourney.com",logo:"https://logo.clearbit.com/midjourney.com"},
-{name:"Runway",desc:"AI video creation.",link:"https://runwayml.com",logo:"https://logo.clearbit.com/runwayml.com"}
-],
-
-chat:[
-{name:"Perplexity",desc:"AI search engine.",link:"https://perplexity.ai",logo:"https://logo.clearbit.com/perplexity.ai"},
-{name:"Gemini",desc:"Google AI assistant.",link:"https://gemini.google.com",logo:"https://logo.clearbit.com/google.com"},
-{name:"Poe",desc:"Multiple AI models platform.",link:"https://poe.com",logo:"https://logo.clearbit.com/poe.com"}
-],
-
-image:[
-{name:"Leonardo AI",desc:"AI artwork generator.",link:"https://leonardo.ai",logo:"https://logo.clearbit.com/leonardo.ai"},
-{name:"Ideogram",desc:"Generate images with text.",link:"https://ideogram.ai",logo:"https://logo.clearbit.com/ideogram.ai"},
-{name:"Adobe Firefly",desc:"AI design tool.",link:"https://firefly.adobe.com",logo:"https://logo.clearbit.com/adobe.com"},
-{name:"Remove.bg",desc:"Remove backgrounds instantly.",link:"https://remove.bg",logo:"https://logo.clearbit.com/remove.bg"}
-],
-
-video:[
-{name:"Pika",desc:"Text to video AI.",link:"https://pika.art",logo:"https://logo.clearbit.com/pika.art"},
-{name:"HeyGen",desc:"AI avatar videos.",link:"https://heygen.com",logo:"https://logo.clearbit.com/heygen.com"},
-{name:"Synthesia",desc:"AI presenter videos.",link:"https://synthesia.io",logo:"https://logo.clearbit.com/synthesia.io"}
-],
-
-coding:[
-{name:"GitHub Copilot",desc:"AI coding assistant.",link:"https://github.com/features/copilot",logo:"https://logo.clearbit.com/github.com"},
-{name:"Cursor",desc:"AI code editor.",link:"https://cursor.com",logo:"https://logo.clearbit.com/cursor.com"},
-{name:"Codeium",desc:"Free coding AI.",link:"https://codeium.com",logo:"https://logo.clearbit.com/codeium.com"},
-{name:"Replit Ghostwriter",desc:"AI coding inside Replit.",link:"https://replit.com",logo:"https://logo.clearbit.com/replit.com"}
-],
-
-audio:[
-{name:"ElevenLabs",desc:"AI voice generator.",link:"https://elevenlabs.io",logo:"https://logo.clearbit.com/elevenlabs.io"},
-{name:"Suno",desc:"AI music generator.",link:"https://suno.com",logo:"https://logo.clearbit.com/suno.com"},
-{name:"AIVA",desc:"AI music composer.",link:"https://aiva.ai",logo:"https://logo.clearbit.com/aiva.ai"}
-],
-
-writing:[
-{name:"Jasper",desc:"AI marketing writer.",link:"https://jasper.ai",logo:"https://logo.clearbit.com/jasper.ai"},
-{name:"Copy AI",desc:"AI copywriting.",link:"https://copy.ai",logo:"https://logo.clearbit.com/copy.ai"},
-{name:"Writesonic",desc:"SEO AI writer.",link:"https://writesonic.com",logo:"https://logo.clearbit.com/writesonic.com"},
-{name:"Grammarly AI",desc:"AI writing helper.",link:"https://grammarly.com",logo:"https://logo.clearbit.com/grammarly.com"}
-]
-
-}
-
-for(let category in tools){
-
-const section=document.getElementById(category)
-
-tools[category].forEach(tool=>{
-
-section.innerHTML+=createCard(tool)
-
 })
 
 }
 
+render()
+
+document.getElementById("search").addEventListener("input",e=>{
+render("all",e.target.value.toLowerCase())
+})
+
+document.querySelectorAll(".cat-btn").forEach(btn=>{
+btn.onclick=()=>{
+document.querySelectorAll(".cat-btn").forEach(b=>b.classList.remove("active"))
+btn.classList.add("active")
+render(btn.dataset.filter,document.getElementById("search").value.toLowerCase())
+}
+})
+
 </script>
 
+<footer style="text-align:center;padding:30px;color:#94a3b8;border-top:1px solid #1f2937;">
+© <script>document.write(new Date().getFullYear())</script> AI Nexus. All Rights Reserved.
+</footer>
+
 </body>
-
 </html>
-
-
